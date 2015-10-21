@@ -16,5 +16,5 @@ angular.module('axiSuperSimpleDemoApp')
     ];
     $scope.selectedVal = 'intial Val';
     $scope.selectedValue = {name: 'initial Val'};
-    $scope.awesomeObjects = [{name:'HTML5 Boilerplate'}, {name: 'AngularJS'}, {name: 'Karma'}];
+
   });
