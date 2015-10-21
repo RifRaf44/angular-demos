@@ -1,0 +1,18 @@
+<p>This is the scopetest view.</p>
+<div class="well">
+  <h2>Primitive values</h2>
+  $scope.selectedVal = {{selectedVal}}
+  <div ng-repeat="a in awesomeThings">
+    selectedVal = {{selectedVal}} <br/>
+    <button ng-click="selectedVal = a"> {{a}} </button>
+  </div>
+</div>
+
+<div class="well">
+  <h2>Objects</h2>
+  $scope.selectedValue.name = {{selectedValue.name}}
+  <div ng-repeat="a in awesomeThings">
+    selectedValue.name = {{selectedValue.name}} <br/>
+    <button ng-click="selectedValue.name = a"> {{a}}</button>
+  </div>
+</div>
