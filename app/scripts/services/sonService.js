@@ -1,10 +1,9 @@
 /**
  * Created by RaphaelV on 20/10/2015.
  */
-angular.module('axiSuperSimpleDemoApp.services').factory('sonService', function($q, $timeout, $interval){
+angular.module('axiSuperSimpleDemoApp.services').factory('sonService', ['$q', '$interval','$timeout',function($q,$interval,$timeout){
   return{
     getWeather: function(){
-
       var deferred = $q.defer();
       var i = 0;
 
@@ -13,23 +12,23 @@ angular.module('axiSuperSimpleDemoApp.services').factory('sonService', function(
       }
 
       var interval = $interval(function(){
-        deferred.notify(Math.floor(++i/(temp) * 100));
-      }, 500);
+          deferred.notify(Math.floor((++i/temp)*100));
+      },500);
 
       var temp = getRandomInt(0, 25);
 
       $timeout(function(){
         $interval.cancel(interval);
-        if(temp > 12){
-          return deferred.resolve({weather: 'good'});
-        }
-        else{
-          return deferred.reject({weather: 'bad'});
-        }
-      }, temp * 500);
+          if(temp > 12){
+            return deferred.resolve({weather: 'good'});
+          }
+          else{
+            return deferred.reject({weather: 'bad'});
+          }
+        }, temp * 500)
 
       return deferred.promise;
     }
   }
 
-});
+}]);

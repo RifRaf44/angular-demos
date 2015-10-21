@@ -8,14 +8,11 @@
  * Controller of the axiSuperSimpleDemoApp
  */
 angular.module('axiSuperSimpleDemoApp')
-  .controller('MainCtrl', function ($scope,$http, beer) {
+  .controller('MainCtrl', function ($scope,$http, Beer) {
     //$scope.beers = [{name:'Jupiler', brouwer: 'inbev'}, {name:'Duvel', brouwer:'moortgat'}, {name:'Westmalle', brouwer:'Westmalle'}];
 
-    $scope.show = true;
-    $scope.addBeer = function addBeer(){
 
-      //$scope.beers.push($scope.newBeer);
-    }
+    $scope.show = true;
 
     $scope.price = 4.95;
 
@@ -44,8 +41,5 @@ angular.module('axiSuperSimpleDemoApp')
       alert('hela ik ben een ' + eenmooietext);
     };
 
-    beer.getAllBeers().then(function(response){
-      $scope.beers =  response.data;
-    });
 
   });

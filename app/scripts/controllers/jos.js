@@ -8,27 +8,23 @@
  * Controller of the axiSuperSimpleDemoApp
  */
 angular.module('axiSuperSimpleDemoApp')
-  .controller('JosCtrl', function ($scope,sonService) {
-
-    $scope.someClick = function(){
-      $scope.doCrazyStuff();
-    }
-
-    $scope.doCrazyStuff = function (){
-      return 12;
-    }
+  .controller('JosCtrl', function ($scope, Beer, sonService) {
 
     $scope.click = function(){
-      sonService.getWeather().then(function(response){
-        alert(response.weather);
-      },function(response){
-        alert(response.weather);
-      },function(response){
-        $scope.percent = response;
-      })
+      sonService.getWeather().then(
+        function(response){
+          console.log(response)
+        },
+        function(response){
+          console.log(response)
+        },
+        function(response){
+          $scope.percent = response;
+        }
+      )
     };
 
-    //var firstBeer = new beerService('cara', 'onbekend', 33);
+    //var firstBeer = new Beer('cara', 'onbekend', 33);
     //
     //console.log(firstBeer);
     //firstBeer.drink();
